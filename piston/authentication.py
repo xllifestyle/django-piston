@@ -63,7 +63,7 @@ class HttpBasicAuthentication(object):
 
         return not request.user in (False, None, AnonymousUser())
 
-    def challenge(self):
+    def challenge(self, request=None):
         resp = HttpResponse("Authorization Required")
         resp['WWW-Authenticate'] = 'Basic realm="%s"' % self.realm
         resp.status_code = 401
