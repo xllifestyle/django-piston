@@ -68,7 +68,7 @@ class rc_factory(object):
                     self._container = [content]
                     self._is_string = True
 
-            content = property(HttpResponse._get_content, _set_content)
+            content = property(HttpResponse.content.getter, _set_content)
 
         return HttpResponseWrapper(r, content_type='text/plain', status=c)
 
