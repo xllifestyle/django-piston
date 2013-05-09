@@ -100,7 +100,7 @@ class CustomResponseWithStatusCodeTest(TestCase):
          response = resource(request, emitter_format='json')
 
          self.assertEquals(201, response.status_code)
-         self.assertTrue(response._is_string, "Expected response content to be a string")
+         self.assertTrue(isinstance(response.content, str), "Expected response content to be a string")
 
          # compare the original data dict with the json response 
          # converted to a dict
