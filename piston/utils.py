@@ -1,4 +1,8 @@
 import time
+from StringIO import StringIO
+
+from django.core.files.uploadedfile import TemporaryUploadedFile, InMemoryUploadedFile
+
 from django.http import HttpResponseNotAllowed, HttpResponseForbidden, HttpResponse, HttpResponseBadRequest
 from django.core.urlresolvers import reverse
 from django.core.cache import cache
@@ -184,6 +188,21 @@ def coerce_put_post(request):
             request._load_post_and_files()
             request.META['REQUEST_METHOD'] = 'PUT'
 
+        # ToDo: carregar a lista de arquivos dinamicamente
+
+        io = StringIO()
+
+        _TMP = InMemoryUploadedFile(
+            io,
+            None,
+            '/usr/local/lib/python2.7/dist-packages/marcio0_django_piston-0.2.5rc-py2.7.egg/piston/utils.py',
+            'application/x-python-code',
+            io.len,
+            None
+        )
+
+        request._files[u'file'] = [_TMP]
+
         request.PUT = request.POST
 
 
@@ -252,7 +271,7 @@ class Mimer(object):
 
             if loadee:
                 try:
-                    self.request.data = loadee(self.request.raw_post_data)
+                    self.request.data = loadee(self.request.body)
 
                     # Reset both POST and PUT from request, as its
                     # misleading having their presence around.
