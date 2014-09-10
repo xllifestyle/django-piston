@@ -1,0 +1,13 @@
+Django==1.7
+PyYAML==3.11
+argparse==1.2.1
+distribute==0.7.3
+djangorecipe==1.10
+ipdb==0.8
+ipython==2.2.0
+marcio0-django-piston==0.2.5rc
+python-apt==0.8.9.1ubuntu1
+virtualenv==1.10.1
+wsgiref==0.1.2
+zc.buildout==2.2.1
+zc.recipe.egg==2.0.1
