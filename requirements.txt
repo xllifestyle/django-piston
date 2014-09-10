@@ -5,7 +5,6 @@ distribute==0.7.3
 djangorecipe==1.10
 ipdb==0.8
 ipython==2.2.0
-marcio0-django-piston==0.2.5rc
 python-apt==0.8.9.1ubuntu1
 virtualenv==1.10.1
 wsgiref==0.1.2
