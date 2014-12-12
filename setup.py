@@ -12,9 +12,9 @@ import os
 
 setup(
     name = "marcio0-django-piston",
-    version = "0.2.5rc",
+    version = "0.2.5.1",
     url = 'http://github.com/marcio0/django-piston',
-	download_url = 'https://github.com/marcio0/django-piston/archive/0.2.5rc.tar.gz',
+	# download_url = 'https://github.com/marcio0/django-piston/archive/0.2.5rc.tar.gz',
     license = 'BSD',
     description = "Piston is a Django mini-framework creating APIs.",
     author = 'Jesper Noehr',
