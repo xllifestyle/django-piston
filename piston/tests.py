@@ -1,10 +1,11 @@
+import json
+
 # Django imports
 from django.core import mail
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.template import loader, TemplateDoesNotExist
 from django.http import HttpRequest, HttpResponse
-from django.utils import simplejson
 
 # Piston imports
 from test import TestCase
@@ -12,6 +13,7 @@ from models import Consumer
 from handler import BaseHandler
 from utils import rc
 from resource import Resource
+
 
 class ConsumerTest(TestCase):
     fixtures = ['models.json']
@@ -104,7 +106,7 @@ class CustomResponseWithStatusCodeTest(TestCase):
 
          # compare the original data dict with the json response 
          # converted to a dict
-         self.assertEquals(response_data, simplejson.loads(response.content))
+         self.assertEquals(response_data, json.loads(response.content))
 
 
 class ErrorHandlerTest(TestCase):
@@ -154,7 +156,7 @@ class ErrorHandlerTest(TestCase):
 
         # verify the content we got back can be converted back to json 
         # and examine the dictionary keys all exist as expected
-        response_data = simplejson.loads(response.content)
+        response_data = json.loads(response.content)
         self.assertTrue('error' in response_data)
         self.assertTrue('name' in response_data['error'])
         self.assertTrue('message' in response_data['error'])
