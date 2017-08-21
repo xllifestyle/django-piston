@@ -26,7 +26,7 @@ def generate_random(length=SECRET_SIZE):
 
 class Nonce(models.Model):
     class Meta:
-        app_label = 'piston.nonce'
+        app_label = 'piston'
 
     token_key = models.CharField(max_length=KEY_SIZE)
     consumer_key = models.CharField(max_length=KEY_SIZE)
@@ -38,7 +38,7 @@ class Nonce(models.Model):
 
 class Consumer(models.Model):
     class Meta:
-        app_label = 'piston.consumer'
+        app_label = 'piston'
     name = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -77,7 +77,7 @@ class Consumer(models.Model):
 
 class Token(models.Model):
     class Meta:
-        app_label = 'piston.token'
+        app_label = 'piston'
 
     REQUEST = 1
     ACCESS = 2
