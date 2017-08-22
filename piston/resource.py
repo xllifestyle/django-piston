@@ -119,6 +119,9 @@ class Resource(object):
         """
         rm = request.method.upper()
 
+        request.POST  # By accessing the POST data here it gets properly picked up
+        request.GET
+
         # Django's internal mechanism doesn't pick up
         # PUT request, so we trick it a little here.
         if rm == "PUT":
