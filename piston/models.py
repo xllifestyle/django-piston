@@ -1,4 +1,5 @@
-import urllib, time, urlparse
+import urllib, time
+from urllib.parse import urlparse
 
 # Django imports
 from django.db.models.signals import post_save, post_delete
