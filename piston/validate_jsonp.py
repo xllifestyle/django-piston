@@ -60,9 +60,9 @@ def is_valid_javascript_identifier(identifier, escape=r'\u', ucd_cat=category):
     if not identifier:
         return False
 
-    if not isinstance(identifier, unicode):
+    if not isinstance(identifier, str):
         try:
-            identifier = unicode(identifier, 'utf-8')
+            identifier = identifier.decode('utf-8')
         except UnicodeDecodeError:
             return False
 
@@ -76,7 +76,7 @@ def is_valid_javascript_identifier(identifier, escape=r'\u', ucd_cat=category):
             if len(segment) < 4:
                 return False
             try:
-                add_char(unichr(int('0x' + segment[:4], 16)))
+                add_char(chr(int('0x' + segment[:4], 16)))
             except Exception:
                 return False
             add_char(segment[4:])

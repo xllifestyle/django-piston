@@ -9,12 +9,12 @@ from django.core.mail import send_mail, EmailMessage
 from django.db.models.query import QuerySet
 from django.http import Http404
 
-from emitters import Emitter
-from handler import typemapper
-from doc import HandlerMethod
-from authentication import NoAuthentication
-from utils import coerce_put_post, FormValidationError, HttpStatusCode
-from utils import rc, format_error, translate_mime, MimerDataException
+from .emitters import Emitter
+from .handler import typemapper
+from .doc import HandlerMethod
+from .authentication import NoAuthentication
+from .utils import coerce_put_post, FormValidationError, HttpStatusCode
+from .utils import rc, format_error, translate_mime, MimerDataException
 
 CHALLENGE = object()
 
