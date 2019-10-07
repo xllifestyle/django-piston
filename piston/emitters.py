@@ -31,13 +31,10 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
 from django.core import serializers
 
-from utils import HttpStatusCode, Mimer
-from validate_jsonp import is_valid_jsonp_callback_value
+from .utils import HttpStatusCode, Mimer
+from .validate_jsonp import is_valid_jsonp_callback_value
 
-try:
-    import cStringIO as StringIO
-except ImportError:
-    import StringIO
+from io import StringIO
 
 try:
     import cPickle as pickle
