@@ -263,7 +263,7 @@ class Emitter(object):
 
                     try:
                         ret['resource_uri'] = reverser( lambda: (url_id, fields) )()
-                    except NoReverseMatch, e:
+                    except NoReverseMatch as e:
                         pass
 
             if hasattr(data, 'get_api_url') and 'resource_uri' not in ret:
