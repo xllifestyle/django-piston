@@ -290,13 +290,13 @@ class Emitter(object):
             """
             Dictionaries.
             """
-            return dict([ (k, _any(v, fields)) for k, v in data.iteritems() ])
+            return dict([ (k, _any(v, fields)) for k, v in data.items() ])
 
         # Kickstart the seralizin'.
         return _any(self.data, self.fields)
 
     def in_typemapper(self, model, anonymous):
-        for klass, (km, is_anon) in self.typemapper.iteritems():
+        for klass, (km, is_anon) in self.typemapper.items():
             if model is km and is_anon is anonymous:
                 return klass
 
@@ -354,7 +354,7 @@ class XMLEmitter(Emitter):
                 self._to_xml(xml, item)
                 xml.endElement("resource")
         elif isinstance(data, dict):
-            for key, value in data.iteritems():
+            for key, value in data.items():
                 xml.startElement(key, {})
                 self._to_xml(xml, value)
                 xml.endElement(key)
