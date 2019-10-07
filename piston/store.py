@@ -1,4 +1,4 @@
-import .oauth
+from piston import oauth
 
 from .models import Nonce, Token, Consumer
 from .models import generate_random, VERIFIER_SIZE
