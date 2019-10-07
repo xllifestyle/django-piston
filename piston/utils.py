@@ -7,7 +7,7 @@ from django.core.mail import send_mail, mail_admins
 from django.conf import settings
 from django.utils.translation import ugettext as _
 from django.template import loader, TemplateDoesNotExist
-from decorator import decorator
+from piston.decorator import decorator
 
 from datetime import datetime, timedelta
 
@@ -49,7 +49,7 @@ class rc_factory(object):
 
         class HttpResponseWrapper(HttpResponse):
             """
-            Wrap HttpResponse and make sure that the internal_base_content_is_iter 
+            Wrap HttpResponse and make sure that the internal_base_content_is_iter
             flag is updated when the _set_content method (via the content
             property) is called
             """
@@ -336,7 +336,7 @@ def send_consumer_mail(consumer):
         mail_admins(_(subject), body, fail_silently=True)
 
     if settings.DEBUG and consumer.user:
-        print "Mail being sent, to=%s" % consumer.user.email
-        print "Subject: %s" % _(subject)
-        print body
+        print ("Mail being sent, to=%s" % consumer.user.email)
+        print ("Subject: %s" % _(subject))
+        print (body)
 
