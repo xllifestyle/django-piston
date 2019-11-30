@@ -246,7 +246,7 @@ class Emitter(object):
                 for f in data._meta.fields:
                     ret[f.attname] = _any(getattr(data, f.attname))
 
-                fields = dir(data.__class__) + ret.keys()
+                fields = dir(data.__class__) + list(ret)
                 add_ons = [k for k in dir(data) if k not in fields]
 
                 for k in add_ons:
