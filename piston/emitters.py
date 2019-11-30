@@ -321,7 +321,7 @@ class Emitter(object):
         """
         Gets an emitter, returns the class and a content-type.
         """
-        if cls.EMITTERS.has_key(format):
+        if format in cls.EMITTERS:
             return cls.EMITTERS.get(format)
 
         raise ValueError("No emitters found for type %s" % format)
