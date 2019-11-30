@@ -61,7 +61,7 @@ class rc_factory(object):
                 HttpResponse.content although this bug report (feature request)
                 suggests that it should: http://code.djangoproject.com/ticket/9403
                 """
-                if not isinstance(content, basestring) and hasattr(content, '__iter__'):
+                if not isinstance(content, str) and hasattr(content, '__iter__'):
                     self._container = content
                     self._base_content_is_iter = False
                 else:
